@@ -1,0 +1,28 @@
+
+<script type='text/javascript' src='jquery.bgiframe.min.js'></script>
+<script type='text/javascript' src='jquery.ajaxQueue.js'></script>
+<script type='text/javascript' src='thickbox-compressed.js'></script>
+<script type='text/javascript' src='jquery.autocomplete.js'></script>
+<script type='text/javascript' src='poll_form.js'></script>
+<link rel="stylesheet" type="text/css" href="jquery.autocomplete.css" />
+<link rel="stylesheet" type="text/css" href="thickbox.css" />
+<script src="jquery.textbox-hinter.js" language="javascript" type="text/javascript"></script>
+
+<div class="poll_form">
+
+
+
+
+<%= form_for @poll do |f| %>
+  <div class="field">
+          <%= f.text_field :question, :size=>100 , :class=>"question", :autocomplete=>"off"%>
+    <%= f.text_field :option1 , :class=>"option1" %>
+    <%= f.text_field :option2 , :class=>"option2" %>
+  </div>
+  <div id ="autocomplete">
+  <div class="actions">
+          <%= f.submit "+ Create Poll", :class=>"post_button" %>
+  </div>
+
+<% end %>
+</div>

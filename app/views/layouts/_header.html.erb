@@ -1,0 +1,15 @@
+<div class = "header">
+
+  <ul>
+              <li><%= button_to "World", root_path, :class => 'menu_button'%></li>
+              <% if signed_in? %>
+              <li>|</li>
+                      <li><%=button_to current_user.name, current_user, :class => 'menu_button', :size => current_user.name.length * 10 , :method => :get%></li>
+              <li>|</li>
+                      <li><%=button_to "Signout", "/sessions/destroy", :class => 'menu_button', :method => :get%></li>
+              <% else %>
+              <li>|</li>
+                      <li><%=button_to "Facebook-Signin", "/auth/facebook", :class => 'menu_button', :method => :get%></li>
+              <% end %>
+      </ul>
+</div>

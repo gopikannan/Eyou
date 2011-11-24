@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Express Yourself</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag    "ey" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "raphael" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+                        
+
+                 <%= render 'layouts/header' %>
+                        <div class="container">
+                         <section >
+                         <%= yield %>
+                         </section>
+                 </div>
+
+</body>
+</html>
