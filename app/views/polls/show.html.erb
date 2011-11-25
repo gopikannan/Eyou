@@ -9,12 +9,8 @@
   <%= javascript_include_tag "jquery-ui" %>
   <%= javascript_include_tag "highcharts" %>
   <%= javascript_include_tag "showpoll" %>
-
 </head>
 <body>
-
-
-
 
 <h1 class = "question" > <%= @poll.question %> </h1>
 <div id = 'data_set'></div>
@@ -31,10 +27,12 @@
 </div>
 </div>
 
-
+<input type="hidden" id="pollid" value=<%=@poll.id%>>
+<input type="hidden" id="pollval" value=<%=@poll_value%>>
 <div id="slider"></div>
 </div>
 <input class="save_button" type="button" value = "Save" id ="option1" onclick="onSlide()">
 </div>
 </body>
 </html>
+

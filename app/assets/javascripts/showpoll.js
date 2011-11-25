@@ -1,13 +1,14 @@
-
-          Highcharts.setOptions({
+                        
+                        Highcharts.setOptions({
                                 global: {
                                         useUTC: false
                                 }
                         });
                                 
                         var chart;
-
+			var pollid;
                         $(document).ready(function() {
+				pollid=$("#pollid").val();
                                 chart = new Highcharts.Chart({
                                         chart: {
                                                 renderTo: 'display',
@@ -24,7 +25,7 @@
                                                                                 type: 'POST',
                                                                                 url: 'update',
                                                                                 dataType: 'json',
-                                                                                data: {poll_id: <%= @poll.id %>},
+                                                                                data: {poll_id: pollid},
                                                                                 success: function(json, status, xhr){
                                                                                 var x = (new Date()).getTime(); // current time
                                                                                 var val = json.message;
@@ -89,11 +90,11 @@
                                 
                         });
 
-
+               
 
         $(function() {
                 $( "#slider" ).slider({
-                        value: <%= @poll_value %>,
+                        value: $("#pollval").val(),
                         min: -25,
                         max: 25,
                         step: 1,
@@ -107,7 +108,7 @@
 				$.ajax({
                         		type: 'POST',
                         		url: '/clicks',
-                        		data: {poll_id: <%= @poll.id %>,
+                        		data: {poll_id: pollid,
                                         option:opt,},
 					success:function(data, textStatus) {
 						document.getElementById("messages").innerHTML="<p style='color:red'>Thanks Buddy !! </p>";
@@ -123,7 +124,7 @@ function onSlide(){
 				$.ajax({
                         		type: 'POST',
                         		url: '/clicks',
-                        		data: {poll_id: <%= @poll.id %>,
+                        		data: {poll_id: pollid,
                                         option:val},
 					success:function(data, textStatus) {
 						document.getElementById("messages").innerHTML="<p style='color:red'>Thanks Buddy !! </p>";
@@ -135,4 +136,3 @@ function onSlide(){
 
 
 }
-
